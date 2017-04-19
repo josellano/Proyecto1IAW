@@ -1,0 +1,5 @@
+function pageInit() {
+	drawCucha();
+	cargarEstilo();
+}
+
