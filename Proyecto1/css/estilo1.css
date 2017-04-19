@@ -18,6 +18,12 @@ body {
     color: #61380B;
 }
 
+.btn{
+	background-color: white;
+	color: black;	
+	
+}
+
 #menu{
 	background-color: white;
 	border-radius: 10px;
