@@ -1,24 +1,31 @@
-function drawCucha() {
+function drawCucha(colorT,colorP,formaT,ventana) {
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
+	
+	ctx.setTransform(1,0,0,1,0,0);
+	ctx.clearRect(0,0,canvas.width,canvas.height);
 
 	drawFloor(ctx);
 
-	drawBack(ctx,0);
-	drawWallR(ctx,0);
-	drawWallL(ctx,"blue",0);
+	drawBack(ctx,formaT);
+	drawWallR(ctx,formaT);
+	drawWallL(ctx,colorP,formaT);
 
-	if(true){
-		drawRoofR(ctx);
-		drawFront(ctx,"blue",0);
-		drawRoofL(ctx);
-	}
-	else{
-		drawFront(ctx,"blue",1);
-		drawRoofA(ctx,"red");
+
+	switch(formaT) {
+		default:
+			drawRoofR(ctx,colorT);
+			drawFront(ctx,colorP,formaT);
+			drawRoofL(ctx,colorT);
+			break;
+		case 1:
+			drawFront(ctx,colorP,formaT);
+			drawRoofA(ctx,colorT);
+			break;
 	}
 
-	drawWindow(ctx,0);
+	if(ventana!="ninguna")
+		drawWindow(ctx,colorP,ventana);
 }
 
 function drawFloor(ctx){
@@ -120,20 +127,20 @@ function drawFront(ctx,color,forma) {
 	ctx.fill();
 }
 
-function drawRoofL(ctx) {
+function drawRoofL(ctx,color) {
 	ctx.setTransform(1,0.5,-1.25,1,130,80);
 
 	var grd=ctx.createLinearGradient(-50,0,100,0);
 	grd.addColorStop(0,"black");
-	grd.addColorStop(1,"red");
+	grd.addColorStop(1,color);
 
 	ctx.fillStyle=grd;
 	ctx.fillRect(0,0,130,60);
 }
 
-function drawRoofR(ctx) {
+function drawRoofR(ctx,color) {
 	ctx.setTransform(1,0.5,1.25,1,130,80);
-	ctx.fillStyle='#550000';
+	ctx.fillStyle=color;
 	ctx.fillRect(0,0,130,60);
 }
 
@@ -148,7 +155,7 @@ function drawRoofA(ctx,color) {
 	ctx.fillRect(0,0,130,80);
 }
 
-function drawWindow(ctx,ventana){
+function drawWindow(ctx,color,ventana){
 	ctx.setTransform(1,0.5,0,-1,125,240);
 
 	var grd=ctx.createLinearGradient(-50,0,200,0);
@@ -157,17 +164,31 @@ function drawWindow(ctx,ventana){
 
 	ctx.fillStyle=grd;
 
-	switch(ventana) {
-		default:
+	if(ventana=="redonda"){
 			ctx.beginPath();
-			ctx.moveTo(0,0);
-			ctx.arc(0,0,20,1*Math.PI,4*Math.PI);
-			ctx.closePath();
+			ctx.arc(0,0,20,0,2*Math.PI);
+			ctx.closePath();	
 
 			ctx.fill();
-			break;
-		case 1:
+
+			var grad = ctx.createRadialGradient(0,0,18, 0,0,22);
+		    grad.addColorStop(0, color);
+		    grad.addColorStop(0.5, 'white');
+		    grad.addColorStop(1, color);
+		    ctx.strokeStyle = grad;
+		    ctx.lineWidth = 6;
+
+		    ctx.stroke();
+	}
+	else
+		if(ventana=="cuadrada"){
+			var grd2=ctx.createLinearGradient(-50,0,200,0);
+			grd2.addColorStop(0,"black");
+			grd2.addColorStop(1,color);
+			ctx.fillStyle=grd2;
+			ctx.fillRect(-35,-25,70,50);
+
+			ctx.fillStyle=grd;
 			ctx.fillRect(-25,-15,50,30);
-			break;
 	}
 }
