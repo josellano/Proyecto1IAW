@@ -43,7 +43,7 @@
 				<input type="radio" name="group2" value="Ninguna"> Ninguna<br>
 			</div>
 
-			<ul class="nav nav-tabs centered">
+			<ul id="tipoPestaña" class="nav nav-tabs centered">
 				<li id="pestañas" class="active"><a data-toggle="tab" href="#paredes">Paredes</a></li>
 				<li id="pestañas"><a data-toggle="tab" href="#techo">Techo</a></li>
 			</ul>
@@ -60,13 +60,14 @@
 						<h3>Estilo</h3>
 							<input type="radio" name="group4" value="Rayado"> Rayado<br>
 							<input type="radio" name="group4" value="Plano" checked> Plano<br>
-							<input type="radio" name="group4" value="Lunares" checked> Lunares<br>
+							<input type="radio" name="group4" value="Lunares"> Lunares<br>
 							<br>
 					</div>
 
 					<!--paleta colores-->
 					<div class="col-lg-6">
 						<h3>Color</h3>
+						 <input type="color" name="favcolor" value="#0000ff">
 					</div>
 				</div>
 
@@ -84,16 +85,17 @@
 							<input type="radio" name="group7" value="Plano" checked> Plano<br>
 							<input type="radio" name="group7" value="Lunares" checked> Lunares<br>
 							<br>
+						
+					</div>
+					<!--paleta colores-->
+					<div class="col-lg-6">
 						<h3>Forma</h3>
 							<input type="radio" name="group6" value="Un agua"> Un agua<br>
 							<input type="radio" name="group6" value="Dos aguas" checked> Dos aguas<br>
 							<input type="radio" name="group6" value="Dos aguas extendida" checked> Dos aguas extendida<br>
 							<br>
-					</div>
-					
-					<!--paleta colores-->
-					<div class="col-lg-6">
 						<h3>Color</h3>
+						 <input type="color" name="favcolor" value="#ff0000">
 					</div>
 				</div>
 			</div>
@@ -107,7 +109,7 @@
 
 	<div id="footer">
 		<div class="dropup">
-		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Estilo
+		<button class="btn" type="button" data-toggle="dropdown">Estilo
 		<span class="caret"></span></button>
 			<ul class="dropdown-menu">
 			<li><a href="#" onclick="reStyle('estilo1')">Estilo 1</a></li>

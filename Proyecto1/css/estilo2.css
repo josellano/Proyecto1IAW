@@ -4,47 +4,73 @@ body {
 
 #header {
 	background-color: grey;
-	border-radius: 10px;
-	padding-top: 10px;
-	padding-bottom: 20px;
+	padding-top: 25px;
+	padding-bottom: 25px;
     color: white;
     text-align: center;
-    margin: 20px;
+   	background-image: url("../source/blackwood1.png");
 }
 
 #footer {
 	background-color: grey;
-	padding: 10px;
-    color: black;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: black;
+	background-image: url("../source/blackwood1.png");
+	
 }
 
 .btn{
 	background-color: black;
 	color: white;	
-	
+	position: absolute;
+	top: -17px;
+	right: 50px;
 }
+
+.dropdown-menu{
+	position: absolute;
+	left: 1140px;	
+}
+
 
 #menu{
 	background-color: #BEBEBE;
-	border-radius: 10px;
 	padding-top: 10px;
-	padding-bottom: 20px;
     color: black;
     font: Verdana;
 	font-size: large;
     text-align: left;
-    margin: 20px;
+    margin: 10px;
 }
 
 
-
-
-.nav-tabs.centered > li, .nav-pills.centered > li {
+.nav-tabs.centered > li{
     float:none;
     display:inline-block;
     *display:inline; /* ie7 fix */
      zoom:1; /* hasLayout ie7 trigger */
 }
+
+.nav-pills.centered > li{
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+	 background: white;
+	 margin: 2px;
+}
+
+.nav-pills.centered > li > a:hover, .nav-pills.centered > li > a:focus {
+color: #000;  /*Sets the text hover color on navbar*/
+}
+
+.nav-pills.centered > .active > a, .nav-pills.centered > .active >   
+ a:hover, .nav-pills.centered > .active > a:focus {
+color: black; /*BACKGROUND color for active*/
+background-color: white;
+}
+
 
 .nav-tabs.centered, .nav-pills.centered {
     text-align:center;
