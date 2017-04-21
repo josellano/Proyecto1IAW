@@ -1,6 +1,7 @@
 function pageInit() {
 	reDraw();
 	cargarEstilo();
+	reloadCucha();
 }
 
 function reDraw(){
@@ -24,4 +25,12 @@ function reDraw(){
     }
 
 	drawCucha(colorT,colorP,formaT,ventana);
+}
+
+function btnFunctions(name,value){
+	
+		reDraw();
+	
+		modifyJson(name,value);
+	
 }
