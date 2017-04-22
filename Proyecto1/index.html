@@ -22,23 +22,24 @@
 
 <body onload="pageInit()">
 	<header>
-	  <h1>Arme su cucha aqui...</h1>
+	  <h1>La cucha que su perro desea...</h1>
 	</header>
 
 	<div id="menu" class="row">
 		<div class="col-lg-6">
 			<div class="col-lg-4">
 				<h3>Tamaño</h3>
-					<input type="radio" name="tamaño" value="chica" title="100" > Chica<br>
-					<input type="radio" name="tamaño" value="mediana" title="200" checked> Mediana<br>
-					<input type="radio" name="tamaño" value="grande" title="300"> Grande<br>
+					<input type="radio" name="tamaño" value="chica" title="100" > Chica(0.8m x 0.5m)<br>
+					<input type="radio" name="tamaño" value="mediana" title="200" checked> Mediana(1m x 0.6m)<br>
+					<input type="radio" name="tamaño" value="grande" title="300"> Grande(1.2m x 0.8m)<br>
 					<br>
 			</div>
 			<div class="col-lg-4">
+				<img id="imgMat" src="source/madera.jpg" style="float: left; margin-top:5px; margin-right: 10px; width:16px; height:150px;">
 				<h3>Material</h3>
 					<input type="radio" name="material" value="madera" title="150" checked> Madera<br>
 					<input type="radio" name="material" value="chapa" title="100"> Chapa<br>
-					<input type="radio" name="material" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
+					<input type="radio" name="material" value="fibra" title="200"> Fibra de vidrio<br>
 					<input type="radio" name="material" value="plastico" title="50"> Plastico<br>
 					<br>
 			</div>
@@ -50,55 +51,55 @@
 					<br>
 			</div>
 
-			<ul id="tipoPestaña" class="nav nav-tabs centered">
-				<li id="pestañas" class="active"><a data-toggle="tab" href="#paredes">Paredes</a></li>
-				<li id="pestañas"><a data-toggle="tab" href="#techo">Techo</a></li>
-			</ul>
-
-			<div class="tab-content">
-				<div id="paredes" class="tab-pane fade in active">
-					<div class="col-lg-6">
-						<h3>Estilo</h3>
-							<input class="2colores" type="radio" name="estilo" value="rayado" title="200"> Rayado<br>
-							<input class="1color" type="radio" name="estilo" value="plano" title="200" checked> Plano<br>
-							<input class="2colores" type="radio" name="estilo" value="lunares" title="200"> Lunares<br>
-							<br>
-					</div>
-
-					<!--paleta colores-->
-					<div class="col-lg-6">
-						<h3>Color</h3>
-							<input id="colorPared1" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
-							<input id="colorPared2" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
-					</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<ul id="tipoPestaña"  class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#paredes">Paredes</a></li>
+						<li><a data-toggle="tab" href="#techo">Techo</a></li>
+					</ul>
 				</div>
+				<div class="tab-content">
+					<div id="paredes" class="tab-pane fade in active">
+						<div class="col-lg-6 navUnit">
+							<h3>Estilo</h3>
+								<input class="2colores" type="radio" name="estilo" value="rayado" title="200"> Rayado<br>
+								<input class="1color" type="radio" name="estilo" value="plano" title="200" checked> Plano<br>
+								<input class="2colores" type="radio" name="estilo" value="lunares" title="200"> Lunares<br>
+								<br>
+						</div>
 
-				<div id="techo" class="tab-pane fade">
-					<!-- radiobuttons dentro de pestaña techo-->
-					<div class="col-lg-6">
-						<h3>Forma</h3>
-							<input type="radio" name="forma" value="un agua" title="100" checked> Un agua<br>
-							<input type="radio" name="forma" value="dos aguas" title="200"> Dos aguas<br>
-							<br>					
+						<div class="col-lg-6 navUnit">
+							<h3>Color</h3>
+								<input id="colorPared1" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
+								<input id="colorPared2" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
+						</div>
 					</div>
-					<!--paleta colores-->
-					<div class="col-lg-6">
-						<h3>Color</h3>
-							<input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
+
+					<div id="techo" class="tab-pane fade">
+						<div class="col-lg-6 navUnit">
+							<h3>Forma</h3>
+								<input type="radio" name="forma" value="un agua" title="100" checked> Un agua<br>
+								<input type="radio" name="forma" value="dos aguas" title="200"> Dos aguas<br>
+								<br>					
+						</div>
+
+						<div class="col-lg-6 navUnit">
+							<h3>Color</h3>
+								<input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
+						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="col-lg-6">
 			<canvas id="canvas" width="400" height="400" style="background-color:#BBBBBB"></canvas>
-			
-			<p>Costo Total:<input class="textBox" type="text" id="total" readonly="true" value=0 > <p>
 		</div>
+
+		<p>Costo Total <input class="textBox" type="text" id="total" readonly="true" value=0> <p>
 	</div>
 
-	<div id="footer">
+	<footer>
 		<div class="dropup">
 		<button class="btn" type="button" data-toggle="dropdown">Estilo
 		<span class="caret"></span></button>
@@ -108,12 +109,13 @@
 			<li><a href="#" onclick="noStyle()">Sin Estilo</a></li>
 			</ul>
 		</div>
-	</div>
+	</footer>
 
 	<script>
 		$("#colorPared2").hide();
 		$(document).ready(function(){
 			$('input[type=radio]').attr("onclick","btnFunctions(name,value,title)");
+			$('input[name=material]').attr("onclick","changeMat(name,value,title)");
 			$(".1color").click(function(){
 				$("#colorPared2").hide();
 			});

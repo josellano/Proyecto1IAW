@@ -179,8 +179,8 @@ function drawRoofA(ctx,color) {
 function drawWindow(ctx,color,ventana){
 	ctx.setTransform(1,0.5,0,-1,125,240);
 
-	var grd=ctx.createLinearGradient(-50,0,200,0);
-	grd.addColorStop(0,"grey");
+	var grd=ctx.createLinearGradient(-20,0,15,0);
+	grd.addColorStop(0,"white");
 	grd.addColorStop(1,"lightblue");
 
 	ctx.fillStyle=grd;
@@ -194,7 +194,7 @@ function drawWindow(ctx,color,ventana){
 
 			var grad = ctx.createRadialGradient(0,0,18, 0,0,22);
 		    grad.addColorStop(0, color);
-		    grad.addColorStop(0.5, 'white');
+		    grad.addColorStop(0.5, "#888888");
 		    grad.addColorStop(1, color);
 		    ctx.strokeStyle = grad;
 		    ctx.lineWidth = 6;

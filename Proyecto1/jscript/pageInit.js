@@ -41,11 +41,25 @@ function reDraw(){
 }
 
 function btnFunctions(name,value,precio){
-	
 	reDraw();
-
 	modifyJson(name,value);
-	
 	updateSum(precio);
+}
+
+function changeMat(name,value,precio){
+	changeImg();
+	modifyJson(name,value);
+	updateSum(precio);
+}
+
+function changeImg(){
+	var material;
+    var radioBtns=document.getElementsByName("material");
 	
+	for(var i=0;i<radioBtns.length;i++) {
+        if(radioBtns[i].checked)
+            material=radioBtns[i].value;
+    }
+
+	document.getElementById("imgMat").setAttribute("src","source/"+material+".jpg");
 }

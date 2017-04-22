@@ -22,9 +22,9 @@ function reStyle(est) {
 function cambiarPestañas(est){
 	
 	if( est=="estilo1")
-		document.getElementById("tipoPestaña").className="nav nav-tabs centered";
+		document.getElementById("tipoPestaña").setAttribute("class","nav nav-tabs");
 	else
-		document.getElementById("tipoPestaña").className="nav nav-pills centered";
+		document.getElementById("tipoPestaña").setAttribute("class","nav nav-pills");
 }
 
 function noStyle() {
