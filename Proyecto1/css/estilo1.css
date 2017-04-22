@@ -2,7 +2,7 @@ body {
     background-color: #FE9A2E;
 }
 
-#header {
+header {
 	background-color: white;
 	border-radius: 10px;
 	padding-top: 10px;
@@ -36,7 +36,7 @@ body {
 }
 
 .nav-tabs.centered > li, .nav-pills.centered > li {
-    float:none;
+    float:center;
     display:inline-block;
     *display:inline; /* ie7 fix */
      zoom:1; /* hasLayout ie7 trigger */

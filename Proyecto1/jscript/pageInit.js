@@ -6,17 +6,30 @@ function pageInit() {
 
 function reDraw(){
 	var colorT=document.getElementById("colorTecho").value;
-	var colorP=document.getElementById("colorPared").value;
+	var colorP1=document.getElementById("colorPared1").value;
 
-	var formaT="";
+	var formaT;
     var radioBtns=document.getElementsByName("forma");
 	
-	if(radioBtns[0].checked)
-        formaT=0;
-    else
-    	formaT=1;
+	for(var i=0;i<radioBtns.length;i++) {
+        if(radioBtns[i].checked)
+            formaT=radioBtns[i].value;
+    }
 
-	var ventana="";
+	var estilo;
+    var radioBtns=document.getElementsByName("estilo");
+	
+	for(var i=0;i<radioBtns.length;i++) {
+        if(radioBtns[i].checked)
+            estilo=radioBtns[i].value;
+    }
+
+	var colorP2;
+    if(estilo!="plano"){
+    	colorP2=document.getElementById("colorPared2").value;
+    }
+
+	var ventana;
     radioBtns=document.getElementsByName("ventana");
 
     for(var i=0;i<radioBtns.length;i++) {
@@ -24,15 +37,15 @@ function reDraw(){
             ventana=radioBtns[i].value;
     }
 
-	drawCucha(colorT,colorP,formaT,ventana);
+	drawCucha(colorT,colorP1,colorP2,formaT,estilo,ventana);
 }
 
 function btnFunctions(name,value,precio){
 	
-		reDraw();
+	reDraw();
+
+	modifyJson(name,value);
 	
-		modifyJson(name,value);
-		
-		updateSum(precio);
+	updateSum(precio);
 	
 }

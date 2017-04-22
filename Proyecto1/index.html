@@ -21,25 +21,33 @@
 </head>
 
 <body onload="pageInit()">
-	<div id="header">
+	<header>
 	  <h1>Arme su cucha aqui...</h1>
-	</div>
+	</header>
 
 	<div id="menu" class="row">
 		<div class="col-lg-6">
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<h3>Tamaño</h3>
-				<input type="radio" name="tamaño" value="chica" title="100" > Chica<br>
-				<input type="radio" name="tamaño" value="mediana" title="200" checked> Mediana<br>
-				<input type="radio" name="tamaño" value="grande" title="300"> Grande<br>
-				<br>
+					<input type="radio" name="tamaño" value="chica" title="100" > Chica<br>
+					<input type="radio" name="tamaño" value="mediana" title="200" checked> Mediana<br>
+					<input type="radio" name="tamaño" value="grande" title="300"> Grande<br>
+					<br>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
+				<h3>Material</h3>
+					<input type="radio" name="material" value="madera" title="150" checked> Madera<br>
+					<input type="radio" name="material" value="chapa" title="100"> Chapa<br>
+					<input type="radio" name="material" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
+					<input type="radio" name="material" value="plastico" title="50"> Plastico<br>
+					<br>
+			</div>
+			<div class="col-lg-4">
 				<h3>Ventana</h3>
-				<input type="radio" name="ventana" value="redonda" title="100" > Redonda<br>
-				<input type="radio" name="ventana" value="cuadrada" title="100" checked> Cuadrada<br>
-				<input type="radio" name="ventana" value="ninguna" title="0" > Ninguna<br>
-				<br>
+					<input type="radio" name="ventana" value="redonda" title="100" > Redonda<br>
+					<input type="radio" name="ventana" value="cuadrada" title="100" checked> Cuadrada<br>
+					<input type="radio" name="ventana" value="ninguna" title="0" > Ninguna<br>
+					<br>
 			</div>
 
 			<ul id="tipoPestaña" class="nav nav-tabs centered">
@@ -50,50 +58,33 @@
 			<div class="tab-content">
 				<div id="paredes" class="tab-pane fade in active">
 					<div class="col-lg-6">
-						<h3>Material</h3>
-							<input type="radio" name="materialP" value="chapa" title="100"> Chapa<br>
-							<input type="radio" name="materialP" value="madera" title="150" checked> Madera<br>
-							<input type="radio" name="materialP" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
-							<input type="radio" name="materialP" value="plastico" title="50"> Plastico<br>
-							<br>
 						<h3>Estilo</h3>
-							<input type="radio" name="estiloP" value="rayado" title="200"> Rayado<br>
-							<input type="radio" name="estiloP" value="plano" title="200" checked> Plano<br>
-							<input type="radio" name="estiloP" value="lunares" title="200"> Lunares<br>
+							<input class="2colores" type="radio" name="estilo" value="rayado" title="200"> Rayado<br>
+							<input class="1color" type="radio" name="estilo" value="plano" title="200" checked> Plano<br>
+							<input class="2colores" type="radio" name="estilo" value="lunares" title="200"> Lunares<br>
 							<br>
 					</div>
 
 					<!--paleta colores-->
 					<div class="col-lg-6">
 						<h3>Color</h3>
-						 <input id="colorPared" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
+							<input id="colorPared1" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
+							<input id="colorPared2" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
 					</div>
 				</div>
 
 				<div id="techo" class="tab-pane fade">
 					<!-- radiobuttons dentro de pestaña techo-->
 					<div class="col-lg-6">
-						<h3>Material</h3>
-							<input type="radio" name="materialT" value="chapa" title="100"> Chapa<br>
-							<input type="radio" name="materialT" value="madera" title="150" checked> Madera<br>
-							<input type="radio" name="materialT" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
-							<input type="radio" name="materialT" value="plastico" title="50"> Plastico<br>
-							<br>
-						<h3>Estilo</h3>
-							<input type="radio" name="estiloT" value="rayado" title="200"> Rayado<br>
-							<input type="radio" name="estiloT" value="plano" title="200" checked> Plano<br>
-							<input type="radio" name="estiloT" value="lunares" title="200"> Lunares<br>
-							<br>
-						
-					</div>
-					<!--paleta colores-->
-					<div class="col-lg-6">
 						<h3>Forma</h3>
 							<input type="radio" name="forma" value="un agua" title="100" checked> Un agua<br>
 							<input type="radio" name="forma" value="dos aguas" title="200"> Dos aguas<br>
-							<br>
+							<br>					
+					</div>
+					<!--paleta colores-->
+					<div class="col-lg-6">
 						<h3>Color</h3>
-						 <input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
+							<input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
 					</div>
 				</div>
 			</div>
@@ -119,11 +110,18 @@
 		</div>
 	</div>
 
-
 	<script>
-		$('input[type=radio]').attr("onclick","btnFunctions(name,value,title)");
+		$("#colorPared2").hide();
+		$(document).ready(function(){
+			$('input[type=radio]').attr("onclick","btnFunctions(name,value,title)");
+			$(".1color").click(function(){
+				$("#colorPared2").hide();
+			});
+			$(".2colores").click(function(){
+				$("#colorPared2").show();
+			});
+		});
 	</script>
-	
 
 	</body>
 </html>

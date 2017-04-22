@@ -16,9 +16,6 @@ function saveCucha() {
 }
 
 function modifyJson(atr,value){
-	alert("atr "+atr);
-	alert("value "+value);
 	cucha[atr]=value;
 	saveCucha();
-	
 }

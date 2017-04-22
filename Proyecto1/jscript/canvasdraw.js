@@ -1,4 +1,4 @@
-function drawCucha(colorT,colorP,formaT,ventana) {
+function drawCucha(colorT,colorP1,colorP2,formaT,estilo,ventana) {
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	
@@ -9,23 +9,21 @@ function drawCucha(colorT,colorP,formaT,ventana) {
 
 	drawBack(ctx,formaT);
 	drawWallR(ctx,formaT);
-	drawWallL(ctx,colorP,formaT);
+	drawWallL(ctx,colorP1,colorP2,formaT,estilo);
 
 
-	switch(formaT) {
-		default:
-			drawRoofR(ctx,colorT);
-			drawFront(ctx,colorP,formaT);
-			drawRoofL(ctx,colorT);
-			break;
-		case 1:
-			drawFront(ctx,colorP,formaT);
-			drawRoofA(ctx,colorT);
-			break;
+	if(formaT=="dos aguas"){
+		drawRoofR(ctx,colorT);
+		drawFront(ctx,colorP1,colorP2,formaT,estilo);
+		drawRoofL(ctx,colorT);
+	}
+	else{
+		drawFront(ctx,colorP1,colorP2,formaT,estilo);
+		drawRoofA(ctx,colorT);
 	}
 
 	if(ventana!="ninguna")
-		drawWindow(ctx,colorP,ventana);
+		drawWindow(ctx,colorP1,ventana);
 }
 
 function drawFloor(ctx){
@@ -39,57 +37,63 @@ function drawFloor(ctx){
 	ctx.fillRect(0,0,50,76);
 }
 
-function drawWallL(ctx,color,forma) {
+function drawWallL(ctx,color,color2,formaT,estilo) {
 	ctx.setTransform(1,0.5,0,-1,75,275);
 
-	var grd=ctx.createLinearGradient(-50,0,200,0);
+	var grd=ctx.createLinearGradient(-50,0,150,0);
 	grd.addColorStop(0,"black");
 	grd.addColorStop(1,color);
 
 	ctx.fillStyle=grd;
 
-	switch(forma) {
-		default:
-			ctx.fillRect(0,0,100,125);
-			break;
-		case 1:
-			ctx.fillRect(0,0,100,100);
-			break;
-	}
+	if(formaT=="dos aguas")
+		ctx.fillRect(0,0,100,125);
+	else
+		ctx.fillRect(0,0,100,100);
 	
+	if(estilo=="rayado")
+		drawLinesW(ctx,color2,100);
 }
 
-function drawWallR(ctx,forma) {
+function drawLinesW(ctx,color,h){
+	grd=ctx.createLinearGradient(-50,0,150,0);
+	grd.addColorStop(0,"black");
+	grd.addColorStop(1,color);
+
+	ctx.fillStyle=grd;
+
+	var i=25;
+	while(i<=h){
+		ctx.fillRect(0,i,100,25);
+		i=i+50;
+	}
+}
+
+function drawWallR(ctx,formaT) {
 	ctx.setTransform(1,0.5,0,-1,225,275);
 	ctx.fillStyle='#000000';
 	
-	switch(forma) {
-		default:
-			ctx.fillRect(0,0,100,125);
-			break;
-		case 1:
-			ctx.fillRect(0,0,100,175);
-			break;
-	}
+	if(formaT=="dos aguas")
+		ctx.fillRect(0,0,100,125);
+	else
+		ctx.fillRect(0,0,100,175);
 }
 
-function drawBack(ctx,forma) {
+function drawBack(ctx,formaT) {
 	ctx.setTransform(1,0,0,1,75,275);
 
 	ctx.beginPath();
 	ctx.moveTo(0,0);
 	ctx.lineTo(150,0);
 
-	switch(forma) {
-		default:
-			ctx.lineTo(150,-125);
-			ctx.lineTo(75,-185);
-			ctx.lineTo(0,-125);
-			break;
-		case 1:
-			ctx.lineTo(150,-175);
-			ctx.lineTo(0,-100);
-			break;
+	if(formaT=="dos aguas"){
+		ctx.lineTo(150,-125);
+		ctx.lineTo(75,-185);
+		ctx.lineTo(0,-125);
+	}
+	else{
+		ctx.lineTo(150,-175);
+		ctx.lineTo(0,-100);
 	}
 
 	ctx.closePath();
@@ -98,7 +102,7 @@ function drawBack(ctx,forma) {
 	ctx.fill();
 }
 
-function drawFront(ctx,color,forma) {
+function drawFront(ctx,color,color2,formaT,estilo) {
 	ctx.setTransform(1,0,0,1,175,325);
 
 	ctx.beginPath();
@@ -109,22 +113,39 @@ function drawFront(ctx,color,forma) {
 	ctx.lineTo(115,0);
 	ctx.lineTo(150,0);
 
-	switch(forma) {
-		default:
-			ctx.lineTo(150,-125);
-			ctx.lineTo(75,-185);
-			ctx.lineTo(0,-125);
-			break;
-		case 1:
-			ctx.lineTo(150,-175);
-			ctx.lineTo(0,-100);
-			break;
+	if(formaT=="dos aguas"){
+		ctx.lineTo(150,-125);
+		ctx.lineTo(75,-185);
+		ctx.lineTo(0,-125);
+	}
+	else{
+		ctx.lineTo(150,-175);
+		ctx.lineTo(0,-100);
 	}
 
 	ctx.closePath();
 
 	ctx.fillStyle=color;
 	ctx.fill();
+
+	if(estilo=="rayado"){
+		ctx.save();
+		ctx.clip();
+
+		drawLinesF(ctx,color2,-150);
+
+		ctx.restore();
+	}
+}
+
+function drawLinesF(ctx,color,h){
+
+	ctx.fillStyle=color;
+	var i=0;
+	while(i>=h){
+		ctx.fillRect(0,i,150,25);
+		i=i-50;
+	}
 }
 
 function drawRoofL(ctx,color) {
