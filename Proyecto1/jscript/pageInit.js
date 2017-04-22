@@ -27,10 +27,12 @@ function reDraw(){
 	drawCucha(colorT,colorP,formaT,ventana);
 }
 
-function btnFunctions(name,value){
+function btnFunctions(name,value,precio){
 	
 		reDraw();
 	
 		modifyJson(name,value);
+		
+		updateSum(precio);
 	
 }

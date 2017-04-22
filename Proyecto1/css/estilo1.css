@@ -46,6 +46,11 @@ body {
     text-align:center;
 }
 
+.textBox{
+	width: 100px;
+	height: 30px;
+}
+
 canvas {
 	overflow: auto;
     margin: 50px;

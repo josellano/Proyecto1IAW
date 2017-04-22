@@ -14,6 +14,7 @@
 	<link id="estilo1" rel="stylesheet" type="text/css" href="css/estilo1.css">
 
 	<script src="jscript/manageJson.js" type="text/javascript"></script>
+	<script src="jscript/updateSum.js" type="text/javascript"></script>
 	<script src="jscript/stylechange.js" type="text/javascript"></script>
 	<script src="jscript/canvasdraw.js" type="text/javascript"></script>
 	<script src="jscript/pageInit.js" type="text/javascript"></script>
@@ -28,16 +29,16 @@
 		<div class="col-lg-6">
 			<div class="col-lg-6">
 				<h3>Tamaño</h3>
-				<input type="radio" name="tamaño" value="chica"> Chica<br>
-				<input type="radio" name="tamaño" value="mediana" checked> Mediana<br>
-				<input type="radio" name="tamaño" value="grande"> Grande<br>
+				<input type="radio" name="tamaño" value="chica" title="100" > Chica<br>
+				<input type="radio" name="tamaño" value="mediana" title="200" checked> Mediana<br>
+				<input type="radio" name="tamaño" value="grande" title="300"> Grande<br>
 				<br>
 			</div>
 			<div class="col-lg-6">
 				<h3>Ventana</h3>
-				<input type="radio" name="ventana" value="redonda"> Redonda<br>
-				<input type="radio" name="ventana" value="cuadrada" checked> Cuadrada<br>
-				<input type="radio" name="ventana" value="ninguna"> Ninguna<br>
+				<input type="radio" name="ventana" value="redonda" title="100" > Redonda<br>
+				<input type="radio" name="ventana" value="cuadrada" title="100" checked> Cuadrada<br>
+				<input type="radio" name="ventana" value="ninguna" title="0" > Ninguna<br>
 				<br>
 			</div>
 
@@ -50,15 +51,15 @@
 				<div id="paredes" class="tab-pane fade in active">
 					<div class="col-lg-6">
 						<h3>Material</h3>
-							<input type="radio" name="materialP" value="chapa"> Chapa<br>
-							<input type="radio" name="materialP" value="madera" checked> Madera<br>
-							<input type="radio" name="materialP" value="fibra de vidrio"> Fibra de vidrio<br>
-							<input type="radio" name="materialP" value="plastico"> Plastico<br>
+							<input type="radio" name="materialP" value="chapa" title="100"> Chapa<br>
+							<input type="radio" name="materialP" value="madera" title="150" checked> Madera<br>
+							<input type="radio" name="materialP" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
+							<input type="radio" name="materialP" value="plastico" title="50"> Plastico<br>
 							<br>
 						<h3>Estilo</h3>
-							<input type="radio" name="estiloP" value="rayado"> Rayado<br>
-							<input type="radio" name="estiloP" value="plano" checked> Plano<br>
-							<input type="radio" name="estiloP" value="lunares"> Lunares<br>
+							<input type="radio" name="estiloP" value="rayado" title="200"> Rayado<br>
+							<input type="radio" name="estiloP" value="plano" title="200" checked> Plano<br>
+							<input type="radio" name="estiloP" value="lunares" title="200"> Lunares<br>
 							<br>
 					</div>
 
@@ -73,23 +74,23 @@
 					<!-- radiobuttons dentro de pestaña techo-->
 					<div class="col-lg-6">
 						<h3>Material</h3>
-							<input type="radio" name="materialT" value="chapa"> Chapa<br>
-							<input type="radio" name="materialT" value="madera" checked> Madera<br>
-							<input type="radio" name="materialT" value="fibra de vidrio"> Fibra de vidrio<br>
-							<input type="radio" name="materialT" value="plastico"> Plastico<br>
+							<input type="radio" name="materialT" value="chapa" title="100"> Chapa<br>
+							<input type="radio" name="materialT" value="madera" title="150" checked> Madera<br>
+							<input type="radio" name="materialT" value="fibra de vidrio" title="200"> Fibra de vidrio<br>
+							<input type="radio" name="materialT" value="plastico" title="50"> Plastico<br>
 							<br>
 						<h3>Estilo</h3>
-							<input type="radio" name="estiloT" value="rayado"> Rayado<br>
-							<input type="radio" name="estiloT" value="plano" checked> Plano<br>
-							<input type="radio" name="estiloT" value="lunares"> Lunares<br>
+							<input type="radio" name="estiloT" value="rayado" title="200"> Rayado<br>
+							<input type="radio" name="estiloT" value="plano" title="200" checked> Plano<br>
+							<input type="radio" name="estiloT" value="lunares" title="200"> Lunares<br>
 							<br>
 						
 					</div>
 					<!--paleta colores-->
 					<div class="col-lg-6">
 						<h3>Forma</h3>
-							<input type="radio" name="forma" value="un agua" checked> Un agua<br>
-							<input type="radio" name="forma" value="dos aguas"> Dos aguas<br>
+							<input type="radio" name="forma" value="un agua" title="100" checked> Un agua<br>
+							<input type="radio" name="forma" value="dos aguas" title="200"> Dos aguas<br>
 							<br>
 						<h3>Color</h3>
 						 <input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
@@ -101,6 +102,8 @@
 
 		<div class="col-lg-6">
 			<canvas id="canvas" width="400" height="400" style="background-color:#BBBBBB"></canvas>
+			
+			<p>Costo Total:<input class="textBox" type="text" id="total" readonly="true" value=0 > <p>
 		</div>
 	</div>
 
@@ -118,7 +121,7 @@
 
 
 	<script>
-		$('input[type=radio]').attr("onclick","btnFunctions(name,value)");
+		$('input[type=radio]').attr("onclick","btnFunctions(name,value,title)");
 	</script>
 	
 
