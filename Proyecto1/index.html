@@ -70,8 +70,8 @@
 
 						<div class="col-lg-6 navUnit">
 							<h3>Color</h3>
-								<input id="colorPared1" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
-								<input id="colorPared2" type="color" name="favcolor" value="#0000ff" onchange="reDraw()">
+								<input id="colorPared1" type="color" name="favcolor" value="#0000ff" title="100" onchange="reDraw()">
+								<input id="colorPared2" type="color" name="favcolor" value="#0000ff" title="200" onchange="reDraw()">
 						</div>
 					</div>
 
@@ -85,7 +85,7 @@
 
 						<div class="col-lg-6 navUnit">
 							<h3>Color</h3>
-								<input  id="colorTecho" type="color" name="favcolor" value="#ff0000" onchange="btnFunctions(id,value)">
+								<input  id="colorTecho" type="color" name="favcolor" value="#ff0000" title="100" onchange="btnFunctions(id,value)">
 						</div>
 					</div>
 				</div>
@@ -114,14 +114,15 @@
 	<script>
 		$("#colorPared2").hide();
 		$(document).ready(function(){
-			$('input[type=radio]').attr("onclick","btnFunctions(name,value,title)");
-			$('input[name=material]').attr("onclick","changeMat(name,value,title)");
+			$('input[type=radio]').attr("onclick","btnFunctions(name,value)");
+			$('input[name=material]').attr("onclick","changeMat(name,value)");
 			$(".1color").click(function(){
 				$("#colorPared2").hide();
 			});
 			$(".2colores").click(function(){
 				$("#colorPared2").show();
 			});
+			updateSum();
 		});
 	</script>
 

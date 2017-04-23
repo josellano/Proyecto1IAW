@@ -1,7 +1,8 @@
 function pageInit() {
 	reDraw();
 	cargarEstilo();
-	reloadCucha();
+	newCucha();
+	
 }
 
 function reDraw(){
@@ -40,16 +41,16 @@ function reDraw(){
 	drawCucha(colorT,colorP1,colorP2,formaT,estilo,ventana);
 }
 
-function btnFunctions(name,value,precio){
+function btnFunctions(name,value){
 	reDraw();
 	modifyJson(name,value);
-	updateSum(precio);
+	updateSum();
 }
 
-function changeMat(name,value,precio){
+function changeMat(name,value){
 	changeImg();
 	modifyJson(name,value);
-	updateSum(precio);
+	updateSum();
 }
 
 function changeImg(){
