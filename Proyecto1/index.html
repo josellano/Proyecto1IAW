@@ -22,7 +22,10 @@
 
 <body onload="pageInit()">
 	<header>
-	  <h1>La cucha que su perro desea...</h1>
+		
+	  	<h1><img name="hueso" src="source/hueso1.png" style="float: left; margin-left: 30px;">La cucha que su perro desea...
+	  	<img name="hueso" src="source/hueso1.png" style="float: right; margin-right: 30px;"></h1>
+	  	
 	</header>
 
 	<div id="menu" class="row">
@@ -116,12 +119,15 @@
 		$(document).ready(function(){
 			$('input[type=radio]').attr("onclick","btnFunctions(name,value)");
 			$('input[name=material]').attr("onclick","changeMat(name,value)");
+
 			$(".1color").click(function(){
 				$("#colorPared2").hide();
 			});
+
 			$(".2colores").click(function(){
 				$("#colorPared2").show();
 			});
+
 			updateSum();
 		});
 	</script>
