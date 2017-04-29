@@ -38,6 +38,7 @@ function reDraw(){
             ventana=radioBtns[i].value;
     }
 
+	
 	drawCucha(colorT,colorP1,colorP2,formaT,estilo,ventana);
 }
 

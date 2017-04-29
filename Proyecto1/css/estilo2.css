@@ -17,6 +17,10 @@ h1{
 	font-size: 40px;
 }
 
+h4{
+	text-align: center;
+}
+
 footer {
 	background-color: grey;
 	padding-top: 30px;
@@ -25,6 +29,9 @@ footer {
 	background-image: url("../source/blackwood1.png");
 	
 }
+
+
+
 
 p {
 	margin-left: 512px;
@@ -40,11 +47,25 @@ p {
 	right: 50px;
 }
 
+.btn1{
+	background-color: #A9A9A9;
+	color: black;	
+	width: 100px;
+	height: 35px;
+	text-align: center;
+	
+}
+
+
 .dropdown-menu{
 	position: absolute;
 	left: 1140px;	
 }
 
+.btn-group-vertical{
+	text-align: center;
+	
+}
 
 #menu{
 	background-color: #BEBEBE;
