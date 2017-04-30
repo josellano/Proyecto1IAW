@@ -19,8 +19,9 @@
 	<script src="jscript/canvasdraw.js" type="text/javascript"></script>
 	<script src="jscript/pageInit.js" type="text/javascript"></script>
 	<script src="jscript/defaultModels.js" type="text/javascript"></script>
+	<script src="jscript/imageDownload.js" type="text/javascript"></script>
+	<script src="jscript/reimg.js"></script>
 </head>
-
 <body onload="pageInit()">
 	<header>
 		
@@ -28,7 +29,7 @@
 	  	<img name="hueso" src="source/hueso1.png" style="float: right; margin-right: 30px;"></h1>
 	  	
 	</header>
-
+	
 	<div id="menu" class="row">
 		<div class="col-lg-6">
 			<div class="col-lg-4">
@@ -98,6 +99,7 @@
 		<div class="col-lg-6">
 			<div class="col-lg-8">
 				<canvas id="canvas" width="400" height="400" style="background-color:#BBBBBB"></canvas>
+				<center><button type="button" class="btn1" onclick="downloadImage()">Descargar</button></center> 
 			</div>
 			<div class="col-lg-4">
 				<h4>Modelos Predeterminados</h4>
