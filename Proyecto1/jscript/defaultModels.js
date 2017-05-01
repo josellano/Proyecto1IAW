@@ -18,6 +18,7 @@ function cheapModel() {
 		
 	reDraw();
 	updateSum();
+	changeImg();
 }
 
 function classicModel() {
@@ -43,6 +44,7 @@ function classicModel() {
 		
 	reDraw();
 	updateSum();
+	changeImg();
 }
 
 function ejecutiveModel() {
@@ -68,4 +70,5 @@ function ejecutiveModel() {
 		
 	reDraw();
 	updateSum();
+	changeImg();
 }
