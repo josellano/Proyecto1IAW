@@ -50,16 +50,7 @@ window.ReImg = {
                     return img;
                 });
             },
-            toJpeg: function(quality) { // quality should be between 0-1
-                quality = quality || 1.0;
-                (function(q) {
-                    this.toCanvas(function(canvas) {
-                        var img = document.createElement('img');
-                        img.src = canvas.toDataURL('image/jpeg', q);
-                        return img;
-                    });
-                })(quality);
-            },
+           
             downloadPng: function(filename) {
                 filename = filename || 'image.png';
                 if (isPng()) {
