@@ -116,3 +116,10 @@ function btnsEstilo(name,value,id){
 	
 }
 
+function footerInformation(){
+	var wleft = screen.width - (screen.width)/2;
+	var wtop = screen.height - (screen.height)/2;
+	var caracteristicas="top="+wtop+" left="+wleft+" height="+300+" width="+200+" resizable=no";
+	win=window.open("datos.html","¿Quienes somos?",caracteristicas);
+	
+}
